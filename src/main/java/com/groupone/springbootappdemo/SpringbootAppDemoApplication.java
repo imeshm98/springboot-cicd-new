@@ -16,7 +16,7 @@ public class SpringbootAppDemoApplication {
 
 	@GetMapping("/login")
 	public String login(){
-		return "Login Page";
+		return "Login Page / Change 2";
 	}
 
 	@GetMapping("/home")
