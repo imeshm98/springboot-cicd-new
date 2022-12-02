@@ -21,7 +21,7 @@ public class SpringbootAppDemoApplication {
 
 	@GetMapping("/home")
 	public String home(){
-		return "This is Home Page";
+		return "This is Home Page / Change";
 	}
 
 	public static void main(String[] args) {
