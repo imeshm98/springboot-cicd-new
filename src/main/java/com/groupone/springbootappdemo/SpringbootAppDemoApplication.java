@@ -24,6 +24,11 @@ public class SpringbootAppDemoApplication {
 		return "This is Home Page / Change";
 	}
 
+	@GetMapping("/cart")
+	public String cart(){
+		return "this is cart page";
+	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootAppDemoApplication.class, args);
 	}
