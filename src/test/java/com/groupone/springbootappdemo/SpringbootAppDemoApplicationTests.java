@@ -8,7 +8,7 @@ class SpringbootAppDemoApplicationTests {
 
 	@Test
 	void contextLoads() {
-		int x=2;
+		int x=1;
 		if (x == 0) {
 		  System.out.println("0");
 		} else if (x == 1) {
