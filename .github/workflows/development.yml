@@ -47,6 +47,18 @@ jobs:
         vuln-type: "os,library"
         severity: "CRITICAL"
 
+    - name: Run Trivy vulnerability scanner 2
+      uses: aquasecurity/trivy-action@master
+      with:
+        image-ref: "docker.io/imeshdocker/springboot-new-app:${{ env.SHORT_SHA }}"
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+
+    - name: Upload Trivy scan results to GitHub Security tab
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: 'trivy-results.sarif'
+
     - name: Docker Push
       if: success()
       run: |
