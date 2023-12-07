@@ -52,7 +52,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Vulnerability Report
-        path: ./report.txt
+        path: ./report.csv
         retention-days: '3'
 
     # - name: Run Trivy vulnerability scanner 2
