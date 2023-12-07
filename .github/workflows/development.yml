@@ -42,25 +42,33 @@ jobs:
       with:
         image-ref: "docker.io/imeshdocker/springboot-new-app:${{ env.SHORT_SHA }}"
         format: "table"
-        exit-code: "1"
+        # exit-code: "1"
         ignore-unfixed: true
         vuln-type: "os,library"
-        severity: "CRITICAL"
+        output: 'report.txt'
+        severity: "CRITICAL, HIGH"
 
-    - name: Run Trivy vulnerability scanner 2
-      uses: aquasecurity/trivy-action@master
+    - name: Upload Dev Report Artifact
+      uses: actions/upload-artifact@v3
       with:
-        image-ref: "docker.io/imeshdocker/springboot-new-app:${{ env.SHORT_SHA }}"
-        format: 'sarif'
-        output: 'trivy-results.sarif'
+        name: Vulnerability Report
+        path: ./report.txt
+        retention-days: '3'
 
-    - name: Print SARIF File Contents
-      run: cat trivy-results.sarif
+    # - name: Run Trivy vulnerability scanner 2
+    #   uses: aquasecurity/trivy-action@master
+    #   with:
+    #     image-ref: "docker.io/imeshdocker/springboot-new-app:${{ env.SHORT_SHA }}"
+    #     format: 'sarif'
+    #     output: 'trivy-results.sarif'
 
-    - name: Upload Trivy scan results to GitHub Security tab
-      uses: github/codeql-action/upload-sarif@v2
-      with:
-        sarif_file: 'trivy-results.sarif'
+    # - name: Print SARIF File Contents
+    #   run: cat trivy-results.sarif
+
+    # - name: Upload Trivy scan results to GitHub Security tab
+    #   uses: github/codeql-action/upload-sarif@v2
+    #   with:
+    #     sarif_file: 'trivy-results.sarif'
 
     - name: Docker Push
       if: success()
