@@ -45,7 +45,7 @@ jobs:
         exit-code: "1"
         ignore-unfixed: true
         vuln-type: 'library'
-        output: 'report.txt'
+        # output: 'report.txt'
         severity: 'CRITICAL'
 
     - name: Upload Dev Report Artifact
