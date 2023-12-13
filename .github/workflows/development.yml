@@ -46,7 +46,7 @@ jobs:
         ignore-unfixed: true
         vuln-type: 'library'
         # output: 'report.txt'
-        severity: 'CRITICAL'
+        severity: 'CRITICAL,HIGH'
 
     - name: Upload Dev Report Artifact
       uses: actions/upload-artifact@v3
