@@ -46,14 +46,14 @@ jobs:
         ignore-unfixed: true
         vuln-type: "library"
         output: 'report.txt'
-        # severity: "CRITICAL, HIGH"
+        severity: "CRITICAL, HIGH"
 
     - name: Upload Dev Report Artifact
       uses: actions/upload-artifact@v3
       with:
         name: Vulnerability Report
         path: ./report.txt
-        # retention-days: '3'
+        retention-days: '10'
 
     # - name: Run Trivy vulnerability scanner 2
     #   uses: aquasecurity/trivy-action@master
