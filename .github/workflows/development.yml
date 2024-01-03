@@ -1,4 +1,4 @@
-name: Development Environment
+name: Development Env
 
 on:
   push:
